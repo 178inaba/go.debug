@@ -1,1 +1,1 @@
-# go.debug
+# Golang debug function
