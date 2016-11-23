@@ -23,9 +23,9 @@ func DumpReqAll(req *http.Request) {
 	log.Infof("---------- %s End ------------", funcName(DumpReqAll))
 }
 
-// DumpCookies is ...
-func DumpCookies(client *http.Client, urlStr string) {
-	log.Infof("---------- %s Start ----------", funcName(DumpCookies))
+// DumpCookie is ...
+func DumpCookie(client *http.Client, urlStr string) {
+	log.Infof("---------- %s Start ----------", funcName(DumpCookie))
 
 	url, err := url.Parse(urlStr)
 	if err != nil {
@@ -33,7 +33,7 @@ func DumpCookies(client *http.Client, urlStr string) {
 	}
 
 	log.Info(client.Jar.Cookies(url))
-	log.Infof("---------- %s End ------------", funcName(DumpCookies))
+	log.Infof("---------- %s End ------------", funcName(DumpCookie))
 }
 
 // DumpResp is ...
