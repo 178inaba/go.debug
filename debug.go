@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"reflect"
 	"runtime"
+	"strings"
 
 	log "github.com/Sirupsen/logrus"
 )
@@ -44,5 +45,8 @@ func DumpResp(resp *http.Response) {
 }
 
 func funcName(i interface{}) string {
-	return runtime.FuncForPC(reflect.ValueOf(i).Pointer()).Name()
+	longFuncName := runtime.FuncForPC(reflect.ValueOf(i).Pointer()).Name()
+	splitFuncName := strings.Split(longFuncName, ".")
+
+	return splitFuncName[len(splitFuncName)-1]
 }
