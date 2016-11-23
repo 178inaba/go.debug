@@ -24,6 +24,19 @@ func DumpReqAll(req *http.Request) {
 	log.Infof("---------- %s End ------------", funcName(DumpReqAll))
 }
 
+// DumpRespAll is ...
+func DumpRespAll(resp *http.Response) {
+	log.Infof("---------- %s Start ----------", funcName(DumpRespAll))
+
+	dump, err := httputil.DumpResponse(resp, true)
+	if err != nil {
+		log.Panic(err)
+	}
+
+	log.Infof("%s", dump)
+	log.Infof("---------- %s End ------------", funcName(DumpRespAll))
+}
+
 // DumpCookie is ...
 func DumpCookie(client *http.Client, urlStr string) {
 	log.Infof("---------- %s Start ----------", funcName(DumpCookie))
