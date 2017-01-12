@@ -57,6 +57,13 @@ func DumpResp(resp *http.Response) {
 	log.Infof("---------- %s End ------------", funcName(DumpResp))
 }
 
+// Dump is ...
+func Dump(v interface{}) {
+	log.Infof("---------- %s Start ----------", funcName(Dump))
+	log.Infof("%+v", v)
+	log.Infof("---------- %s End ------------", funcName(Dump))
+}
+
 func funcName(i interface{}) string {
 	longFuncName := runtime.FuncForPC(reflect.ValueOf(i).Pointer()).Name()
 	splitFuncName := strings.Split(longFuncName, ".")
