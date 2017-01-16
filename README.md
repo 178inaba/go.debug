@@ -1,9 +1,9 @@
-# Golang debug function
+# Go Dump
 
-[![GoDoc](https://godoc.org/github.com/178inaba/go.debug?status.svg)](https://godoc.org/github.com/178inaba/go.debug)
-[![Go Report Card](https://goreportcard.com/badge/github.com/178inaba/go.debug)](https://goreportcard.com/report/github.com/178inaba/go.debug)
+[![GoDoc](https://godoc.org/github.com/178inaba/go.dump?status.svg)](https://godoc.org/github.com/178inaba/go.dump)
+[![Go Report Card](https://goreportcard.com/badge/github.com/178inaba/go.dump)](https://goreportcard.com/report/github.com/178inaba/go.dump)
 
-Debug functions.
+Dump functions.
 
 ## License
 

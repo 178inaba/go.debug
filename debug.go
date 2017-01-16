@@ -1,4 +1,4 @@
-package debug
+package dump
 
 import (
 	"net/http"
@@ -11,9 +11,16 @@ import (
 	log "github.com/Sirupsen/logrus"
 )
 
-// DumpReqAll is ...
-func DumpReqAll(req *http.Request) {
-	log.Infof("---------- %s Start ----------", funcName(DumpReqAll))
+// Dump is ...
+func Dump(v interface{}) {
+	log.Infof("---------- %s Start ----------", funcName(Dump))
+	log.Infof("%+v", v)
+	log.Infof("---------- %s End ------------", funcName(Dump))
+}
+
+// ReqAll is ...
+func ReqAll(req *http.Request) {
+	log.Infof("---------- %s Start ----------", funcName(ReqAll))
 
 	dump, err := httputil.DumpRequestOut(req, true)
 	if err != nil {
@@ -21,12 +28,12 @@ func DumpReqAll(req *http.Request) {
 	}
 
 	log.Infof("%s", dump)
-	log.Infof("---------- %s End ------------", funcName(DumpReqAll))
+	log.Infof("---------- %s End ------------", funcName(ReqAll))
 }
 
-// DumpRespAll is ...
-func DumpRespAll(resp *http.Response) {
-	log.Infof("---------- %s Start ----------", funcName(DumpRespAll))
+// RespAll is ...
+func RespAll(resp *http.Response) {
+	log.Infof("---------- %s Start ----------", funcName(RespAll))
 
 	dump, err := httputil.DumpResponse(resp, true)
 	if err != nil {
@@ -34,12 +41,12 @@ func DumpRespAll(resp *http.Response) {
 	}
 
 	log.Infof("%s", dump)
-	log.Infof("---------- %s End ------------", funcName(DumpRespAll))
+	log.Infof("---------- %s End ------------", funcName(RespAll))
 }
 
-// DumpCookie is ...
-func DumpCookie(client *http.Client, urlStr string) {
-	log.Infof("---------- %s Start ----------", funcName(DumpCookie))
+// Cookie is ...
+func Cookie(client *http.Client, urlStr string) {
+	log.Infof("---------- %s Start ----------", funcName(Cookie))
 
 	url, err := url.Parse(urlStr)
 	if err != nil {
@@ -47,21 +54,7 @@ func DumpCookie(client *http.Client, urlStr string) {
 	}
 
 	log.Info(client.Jar.Cookies(url))
-	log.Infof("---------- %s End ------------", funcName(DumpCookie))
-}
-
-// DumpResp is ...
-func DumpResp(resp *http.Response) {
-	log.Infof("---------- %s Start ----------", funcName(DumpResp))
-	log.Infof("%+v", resp)
-	log.Infof("---------- %s End ------------", funcName(DumpResp))
-}
-
-// Dump is ...
-func Dump(v interface{}) {
-	log.Infof("---------- %s Start ----------", funcName(Dump))
-	log.Infof("%+v", v)
-	log.Infof("---------- %s End ------------", funcName(Dump))
+	log.Infof("---------- %s End ------------", funcName(Cookie))
 }
 
 func funcName(i interface{}) string {
