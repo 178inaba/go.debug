@@ -45,10 +45,10 @@ func RespAll(resp *http.Response) {
 }
 
 // Cookie is ...
-func Cookie(client *http.Client, urlStr string) {
+func Cookie(client *http.Client, rawurl string) {
 	log.Infof("---------- %s Start ----------", funcName(Cookie))
 
-	url, err := url.Parse(urlStr)
+	url, err := url.Parse(rawurl)
 	if err != nil {
 		log.Panic(err)
 	}
