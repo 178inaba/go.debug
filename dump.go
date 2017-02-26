@@ -22,13 +22,26 @@ func Dump(v interface{}) {
 func ReqAll(req *http.Request) {
 	log.Infof("---------- %s Start ----------", funcName(ReqAll))
 
-	dump, err := httputil.DumpRequestOut(req, true)
+	dump, err := httputil.DumpRequest(req, true)
 	if err != nil {
 		log.Panic(err)
 	}
 
 	log.Infof("%s", dump)
 	log.Infof("---------- %s End ------------", funcName(ReqAll))
+}
+
+// ReqOutAll is outgoing request dump.
+func ReqOutAll(req *http.Request) {
+	log.Infof("---------- %s Start ----------", funcName(ReqOutAll))
+
+	dump, err := httputil.DumpRequestOut(req, true)
+	if err != nil {
+		log.Panic(err)
+	}
+
+	log.Infof("%s", dump)
+	log.Infof("---------- %s End ------------", funcName(ReqOutAll))
 }
 
 // RespAll is ...
